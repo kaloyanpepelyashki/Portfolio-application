@@ -3,24 +3,10 @@ import NavBarLink from "../Components/Atomic Components/NavigationBar-Link";
 import { ArrowDropDownCircleOutlined } from '@mui/icons-material'
 
 export default function HomePage() {
-    // const containerRef = useRef<HTMLDivElement | null>(null);
-
-    // const scrollToTarget = (targetId: string) => {
-    //   const container = containerRef.current;
-    //   const targetElement = document.getElementById(targetId);
-    //   if (container && targetElement) {
-    //     // Calculate the position to scroll to
-    //     const containerTop = container.getBoundingClientRect().top;
-    //     const targetTop = targetElement.getBoundingClientRect().top;
-    //     // Since scrollTop is a property of the container, ensure container is typed correctly
-    //     const scrollPosition = targetTop - containerTop + container.scrollTop;
-    //     container.scrollTo({ top: scrollPosition, behavior: 'smooth' });
-    //   }
-    // };
 
     const scrollTarget = useRef<HTMLDivElement | null>(null)
 
-    const ScrollTrigger = () => scrollTarget.current?.scrollIntoView()   
+    const ScrollTrigger = () => scrollTarget.current?.scrollIntoView({ behavior: 'smooth', block: 'start' }); 
         
     return (
         <div  className="home-page-main-wrapper page-main-wrapper">
@@ -36,7 +22,9 @@ export default function HomePage() {
                 </a>
             </div>
             <div  id="targetElementId" className="home-page-hidden-section-holder">
-                <h2 ref={scrollTarget}>Heading</h2>
+                <h2 className="home-page-hidden-section-heading" ref={scrollTarget}><b>I am a full-stack developer</b></h2>
+                <p className="home-page-hidden-section-paragraph">As a <b>dedicated</b> full-stack developer I blend technical expertise with design sensibility to craft software and web solutions that are <b>visually striking, highly functional, robust and user-centric</b>. My software/web development background enables me to navigate and solve complex challenges, always with an eye on enhancing user experience.pleasing but also highly functional and scalable. My background in Multimedia Design and Web Development, combined with my experience as a full-time developer at Ebits, equips me with a unique perspective and diverse skill set that can tackle a variety of challenges.
+                </p>
             </div>
         </div>
     )

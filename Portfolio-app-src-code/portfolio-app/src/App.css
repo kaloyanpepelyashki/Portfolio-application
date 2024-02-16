@@ -132,6 +132,7 @@ b {
   display: flex;
   flex-direction: column;
   align-items: center;
+  margin-top: 75px;
 }
 .home-page-named-heading {
   font-size: 50px;
@@ -161,9 +162,22 @@ b {
   font-size: 60;
 }
 .home-page-hidden-section-holder {
+  height: 100vh;
   width: 100%;
   display: flex;
   flex-direction: column;
   align-items: flex-start;
-  margin-top: 900px;
+  justify-content: center;
+  padding-left: 70px;
+  margin-top: 400px;
+}
+.home-page-hidden-section-heading {
+  font-size: 37px;
+  margin-bottom: 7px;
+}
+
+.home-page-hidden-section-paragraph {
+  width: 80%;
+  font-size: 23px;
+  line-height: 55px;
 }
