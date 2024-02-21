@@ -42,7 +42,7 @@ body {
   line-height: 1.6;
   font-size: 1.6rem; /* 16px */
   background-color: #050734;
-  color: #fcec3b;
+  color: #e2e8f0;
 
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
@@ -101,12 +101,23 @@ b {
   font-style: normal;
   font-variation-settings: "slnt" 0;
   font-size: 40px;
-}
-.nav-bar-link {
   color: #fcec3b;
+}
+
+.nav-bar-link {
+  color: #fcec3b8e;
   text-decoration: none;
   font-size: 28px;
 }
+a.pending {
+  color: #fcec3b8e;
+  text-decoration: none;
+  font-size: 28px;
+}
+a.active {
+  color: #fcec3b;
+}
+
 .navigation-links-holder {
   width: 30%;
   display: flex;
@@ -180,4 +191,76 @@ b {
   width: 80%;
   font-size: 23px;
   line-height: 55px;
+}
+
+/* --------------------------------- */
+
+/* <=== About Page  ===>  */
+
+/* --------------------------------- */
+
+.about-page-main-wrapper {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.about-page-top-section-wrapper {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: row;
+  padding-left: 60px;
+  margin-top: -100px;
+}
+
+/* <=== Image title wrapper component  ===>  */
+
+.about-page-image-title-wrapper {
+  width: 28%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+.about-page-hero-name-heading {
+  font-size: 40px;
+  font-weight: bold;
+}
+.about-page-hero-text-heading {
+  font-size: 30px;
+  font-weight: normal;
+}
+.about-page-profile-picture {
+  width: 70%;
+  border-radius: 50%;
+  margin-bottom: 70px;
+}
+
+/* <=== Short text SoMe wrapper component  ===>  */
+
+.about-page-short-text-holder {
+  width: 69%;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+.about-page-SoMe-icons-holder {
+  width: 13%;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+}
+.about-page-short-text {
+  font-size: 32px;
+  line-height: 58px;
+  color: #7f92b1;
+  margin-bottom: 30px;
+}
+.SoMe-icon {
+  width: 52px;
+  height: 52px;
 }
