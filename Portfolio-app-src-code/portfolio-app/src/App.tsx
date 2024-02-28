@@ -4,6 +4,7 @@ import HomePage from "./Pages/HomePage";
 import NavigationBar from "./Components/Global Components/NavigationBar";
 import AboutPage from "./Pages/AboutPage";
 import FlashlightEffect from "./Components/Atomic Components/CursorFlashLight";
+import WorkPage from "./Pages/WorkPage";
 
 function App() {
   return (
@@ -14,6 +15,7 @@ function App() {
         <Routes>
           <Route path="/" element={<HomePage />} />
           <Route path="/about" element={<AboutPage />} />
+          <Route path="/work" element={<WorkPage />} />
         </Routes>
       </div>
     </>

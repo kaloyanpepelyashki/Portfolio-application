@@ -224,6 +224,7 @@ a.active {
   flex-direction: column;
   align-items: center;
   margin-top: 200px;
+  padding: 0px 80px;
 }
 
 .about-page-top-section-wrapper {
@@ -248,11 +249,11 @@ a.active {
   justify-content: space-between;
 }
 .about-page-hero-name-heading {
-  font-size: 36px;
+  font-size: 32px;
   font-weight: bold;
 }
 .about-page-hero-text-heading {
-  font-size: 30px;
+  font-size: 28px;
   font-weight: normal;
 }
 .about-page-profile-picture {
@@ -270,14 +271,14 @@ a.active {
   align-items: flex-start;
 }
 .about-page-SoMe-icons-holder {
-  width: 20%;
+  width: 24%;
   display: flex;
   flex-direction: row;
   align-items: center;
   justify-content: space-between;
 }
 .about-page-short-text {
-  font-size: 32px;
+  font-size: 27px;
   line-height: 58px;
   color: #7f92b1;
   margin-bottom: 30px;
@@ -338,4 +339,15 @@ a.active {
   flex-direction: column;
   align-items: flex-start;
   margin-top: 120px;
+}
+.about-me-paragraph {
+  width: 80%;
+  font-size: 23px;
+  line-height: 55px;
+}
+
+.project-item-component-wrapper {
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
 }
