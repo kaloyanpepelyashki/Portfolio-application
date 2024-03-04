@@ -1,17 +1,38 @@
-import ProjectItemLeftSide from "../Small commponents/ProjectItemLeftSide";
-import ProjectItemRightSide from "../Small commponents/ProjectItemRightSide";
+import ProjectItemAttributes from "../Small commponents/ProjectItemAttributesHolde";
 
-export default function ProjectItemComponent() {
+import ProjectItemTopSection from "../Small commponents/ProjectItemTopComponent";
+interface ProjectItemProps {
+  projectTitle: string;
+  projectDescription: string;
+  projectImageURL: string;
+  projectRole: string;
+  projectDate: string;
+  projectPurpose: string;
+}
+const ProjectItemComponent: React.FC<ProjectItemProps> = ({
+  projectTitle,
+  projectDescription,
+  projectImageURL,
+  projectRole,
+  projectDate,
+  projectPurpose,
+}) => {
   return (
     <>
       <div className="project-item-component-wrapper">
-        <div className="project-item-left-side">
-          <ProjectItemLeftSide />
-        </div>
-        <div className="project-item-right-side">
-          <ProjectItemRightSide />
-        </div>
+        <ProjectItemTopSection
+          projectTitle={projectTitle}
+          projectDescription={projectDescription}
+          projectImageURL={projectImageURL}
+        />
+        <ProjectItemAttributes
+          role={projectRole}
+          date={projectDate}
+          purpose={projectPurpose}
+        />
       </div>
     </>
   );
-}
+};
+
+export default ProjectItemComponent;
