@@ -1,9 +1,9 @@
 import "./App.css";
 import { Route, Routes } from "react-router-dom";
 import HomePage from "./Pages/HomePage";
-import NavigationBar from "./Components/Global Components/NavigationBar";
+import NavigationBar from "./Components/UI Components/Global Components/NavigationBar";
 import AboutPage from "./Pages/AboutPage";
-import FlashlightEffect from "./Components/Atomic Components/CursorFlashLight";
+import FlashlightEffect from "./Components/UI Components/Atomic Components/CursorFlashLight";
 import WorkPage from "./Pages/WorkPage";
 
 function App() {

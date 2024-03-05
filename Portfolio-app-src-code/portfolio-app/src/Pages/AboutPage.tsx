@@ -1,7 +1,7 @@
-import FlashlightEffect from "../Components/Atomic Components/CursorFlashLight";
-import AboutMeText from "../Components/Global Components/AboutMeTextComponent";
-import AboutPageTopComponent from "../Components/Global Components/AboutPageTopSection";
-import MyStackComponent from "../Components/Global Components/MyStackComponent";
+import FlashlightEffect from "../Components/UI Components/Atomic Components/CursorFlashLight";
+import AboutMeText from "../Components/UI Components/Global Components/AboutMeTextComponent";
+import AboutPageTopComponent from "../Components/UI Components/Global Components/AboutPageTopSection";
+import MyStackComponent from "../Components/UI Components/Global Components/MyStackComponent";
 
 export default function AboutPage() {
   return (

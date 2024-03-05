@@ -1,5 +1,5 @@
 import { useRef } from "react";
-import NavBarLink from "../Components/Atomic Components/NavigationBar-Link";
+import NavBarLink from "../Components/UI Components/Atomic Components/NavigationBar-Link";
 import { ArrowDropDownCircleOutlined } from "@mui/icons-material";
 
 export default function HomePage() {
