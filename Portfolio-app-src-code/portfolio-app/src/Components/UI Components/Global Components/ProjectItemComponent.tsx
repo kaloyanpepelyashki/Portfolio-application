@@ -1,6 +1,6 @@
 import ProjectItemAttributes from "../Small commponents/ProjectItemAttributesHolde";
-
 import ProjectItemTopSection from "../Small commponents/ProjectItemTopComponent";
+import ProjectStackIconsHolder from "../Small commponents/ProjectStackIconsHolder";
 interface ProjectItemProps {
   projectTitle: string;
   projectDescription: string;
@@ -8,6 +8,7 @@ interface ProjectItemProps {
   projectRole: string;
   projectDate: string;
   projectPurpose: string;
+  projectStack: Array<string>;
 }
 const ProjectItemComponent: React.FC<ProjectItemProps> = ({
   projectTitle,
@@ -16,6 +17,7 @@ const ProjectItemComponent: React.FC<ProjectItemProps> = ({
   projectRole,
   projectDate,
   projectPurpose,
+  projectStack,
 }) => {
   return (
     <>
@@ -30,6 +32,7 @@ const ProjectItemComponent: React.FC<ProjectItemProps> = ({
           date={projectDate}
           purpose={projectPurpose}
         />
+        <ProjectStackIconsHolder projectStackItems={projectStack} />
       </div>
     </>
   );

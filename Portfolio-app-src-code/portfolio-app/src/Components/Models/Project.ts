@@ -1,6 +1,7 @@
 export default class Project {
   public title: string;
   public description: string;
+  public imageUrl: string;
   public role: string;
   public purpose: string;
   public date: string;
@@ -8,6 +9,7 @@ export default class Project {
   constructor(
     title: string,
     description: string,
+    imageUrl: string,
     role: string,
     purpose: string,
     date: string,
@@ -15,6 +17,7 @@ export default class Project {
   ) {
     this.title = title;
     this.description = description;
+    this.imageUrl = imageUrl;
     this.role = role;
     this.purpose = purpose;
     this.date = date;

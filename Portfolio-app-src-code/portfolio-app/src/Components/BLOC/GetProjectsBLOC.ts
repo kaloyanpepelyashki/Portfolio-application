@@ -11,6 +11,7 @@ export const fetchProjects: () => Promise<Array<Project> | []> = async () => {
     const projectObj = new Project(
       data.title,
       data.description,
+      data.imageUrl,
       data.role,
       data.purpose,
       data.date,

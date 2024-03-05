@@ -422,3 +422,25 @@ a.active {
   font-size: 24px;
   color: #ffc745;
 }
+.project-stack-icons-holder {
+  width: 60%;
+  display: flex;
+  flex-wrap: wrap; /* Allows items to wrap onto the next line, if needed */
+  flex-direction: row;
+  margin-top: 15px;
+}
+.stack-item-wrapper {
+  width: 9%;
+  height: 98%;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  background-color: #7f92b1;
+  border-radius: 50px;
+  padding: 0.5em 0.5em 0.5em;
+  margin-right: 3%;
+}
+.project-stack-icon {
+  width: 30%;
+}
