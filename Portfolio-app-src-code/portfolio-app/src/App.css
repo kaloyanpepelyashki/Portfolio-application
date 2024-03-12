@@ -43,26 +43,10 @@ body {
   font-size: 1.6rem; /* 16px */
   background-color: #050734;
   color: #e2e8f0;
-
   cursor: url("data:image/x-icon;base64,AAACAAEAICACAAcABwAwAQAAFgAAACgAAAAgAAAAQAAAAAEAAQAAAAAAgAAAAAAAAAAAAAAAAgAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA//////////////////////////////////////////////////////////////////////////////////////7////+/////v////7////+/////v////7////+////AAD///7////+/////v////7////+/////v////7///8="),
     auto;
-
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-}
-/* Track */
-::-webkit-scrollbar-track {
-  background: #242424;
-}
-
-/* Handle */
-::-webkit-scrollbar-thumb {
-  background: #fcec3b8e;
-}
-
-/* Handle on hover */
-::-webkit-scrollbar-thumb:hover {
-  background: #555;
 }
 .cursor-glow {
   position: fixed;
@@ -95,6 +79,10 @@ b {
   font-optical-sizing: auto;
   font-weight: 700;
   font-style: normal;
+}
+a {
+  text-decoration: none !important;
+  color: inherit;
 }
 
 .application-main-container {
@@ -212,7 +200,7 @@ a.active {
   flex-direction: column;
   align-items: flex-start;
   justify-content: center;
-  padding-left: 70px;
+  padding-left: 81px;
   margin-top: 400px;
 }
 .home-page-hidden-section-heading {

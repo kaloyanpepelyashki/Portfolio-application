@@ -3,6 +3,7 @@ export default class Project {
   public title: string;
   public description: string;
   public imageUrl: string;
+  public repoUrl: string;
   public role: string;
   public purpose: string;
   public date: string;
@@ -12,6 +13,7 @@ export default class Project {
     title: string,
     description: string,
     imageUrl: string,
+    repoUrl: string,
     role: string,
     purpose: string,
     date: string,
@@ -21,6 +23,7 @@ export default class Project {
     this.title = title;
     this.description = description;
     this.imageUrl = imageUrl;
+    this.repoUrl = repoUrl;
     this.role = role;
     this.purpose = purpose;
     this.date = date;

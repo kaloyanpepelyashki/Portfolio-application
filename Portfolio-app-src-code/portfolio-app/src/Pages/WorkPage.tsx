@@ -20,6 +20,7 @@ export default function WorkPage() {
                     projectImageURL={
                       "https://marketplace.canva.com/EAE6WTyrSQ0/2/0/1600w/canva-light-beige-sleek-and-simple-blogger-personal-website--7Q4-7tyJj4.jpg"
                     }
+                    projectRepoUrl={project.repoUrl}
                     projectRole={project.role}
                     projectDate={project.date}
                     projectPurpose={project.purpose}

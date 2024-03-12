@@ -13,6 +13,7 @@ export const fetchProjects: () => Promise<Array<Project> | []> = async () => {
       data.title,
       data.description,
       data.imageUrl,
+      data.repositoryLink,
       data.role,
       data.purpose,
       data.date,

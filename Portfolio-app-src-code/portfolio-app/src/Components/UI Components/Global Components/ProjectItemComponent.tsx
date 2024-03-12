@@ -5,6 +5,7 @@ interface ProjectItemProps {
   projectTitle: string;
   projectDescription: string;
   projectImageURL: string;
+  projectRepoUrl: string;
   projectRole: string;
   projectDate: string;
   projectPurpose: string;
@@ -14,6 +15,7 @@ const ProjectItemComponent: React.FC<ProjectItemProps> = ({
   projectTitle,
   projectDescription,
   projectImageURL,
+  projectRepoUrl,
   projectRole,
   projectDate,
   projectPurpose,
@@ -21,19 +23,21 @@ const ProjectItemComponent: React.FC<ProjectItemProps> = ({
 }) => {
   return (
     <>
-      <div className="project-item-component-wrapper">
-        <ProjectItemTopSection
-          projectTitle={projectTitle}
-          projectDescription={projectDescription}
-          projectImageURL={projectImageURL}
-        />
-        <ProjectItemAttributes
-          role={projectRole}
-          date={projectDate}
-          purpose={projectPurpose}
-        />
-        <ProjectStackIconsHolder projectStackItems={projectStack} />
-      </div>
+      <a href={projectRepoUrl}>
+        <div className="project-item-component-wrapper">
+          <ProjectItemTopSection
+            projectTitle={projectTitle}
+            projectDescription={projectDescription}
+            projectImageURL={projectImageURL}
+          />
+          <ProjectItemAttributes
+            role={projectRole}
+            date={projectDate}
+            purpose={projectPurpose}
+          />
+          <ProjectStackIconsHolder projectStackItems={projectStack} />
+        </div>
+      </a>
     </>
   );
 };
