@@ -9,6 +9,7 @@ export const fetchProjects: () => Promise<Array<Project> | []> = async () => {
   projectsData?.forEach((project) => {
     const data = project.data();
     const projectObj = new Project(
+      project.id,
       data.title,
       data.description,
       data.imageUrl,

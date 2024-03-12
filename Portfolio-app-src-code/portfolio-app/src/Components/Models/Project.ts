@@ -1,4 +1,5 @@
 export default class Project {
+  public id: string;
   public title: string;
   public description: string;
   public imageUrl: string;
@@ -7,6 +8,7 @@ export default class Project {
   public date: string;
   public stack: Array<string> = [];
   constructor(
+    id: string,
     title: string,
     description: string,
     imageUrl: string,
@@ -15,6 +17,7 @@ export default class Project {
     date: string,
     stack: Array<string>
   ) {
+    this.id = id;
     this.title = title;
     this.description = description;
     this.imageUrl = imageUrl;

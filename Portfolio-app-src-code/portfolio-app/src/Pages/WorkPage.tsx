@@ -14,6 +14,7 @@ export default function WorkPage() {
                 console.log(project);
                 return (
                   <ProjectItemComponent
+                    key={project.id}
                     projectTitle={project.title}
                     projectDescription={project.description}
                     projectImageURL={
