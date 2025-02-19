@@ -114,6 +114,7 @@ a {
   flex-direction: row;
   align-items: center;
   justify-content: space-between;
+  padding: 0 2% 0 2%
 }
 .navigation-bar-logo {
   font-family: "Inter", sans-serif;
@@ -154,6 +155,16 @@ a.active {
   transition: all 0.5s;
 }
 
+@media (min-width: 2000px) {
+  .navigation-links-holder {
+    width: 23%;
+  }
+  .nav-bar-link {
+    font-size: 32px;
+  }
+}
+
+
 /* --------------------------------- */
 
 /* <=== Home Page  ===>  */
@@ -166,10 +177,10 @@ a.active {
   margin-top: 75px;
 }
 .home-page-named-heading {
-  font-size: 50px;
+  font-size: 45px;
 }
 .home-page-linked-heading {
-  font-size: 40px;
+  font-size: 30px;
 }
 .linked-headings-holder {
   display: flex;
@@ -183,14 +194,14 @@ a.active {
   align-items: center;
   margin-top: 95px;
 }
+
 .hope-page-bottom-heading {
-  font-size: 30px;
+  font-size: 23px;
 }
 .home-page-arrow-down-icon {
   transition: all 0.6s;
 }
 .home-page-arrow-down-icon:hover {
-  font-size: 60;
   color: #fcec3b;
 }
 .home-page-hidden-section-holder {
@@ -214,6 +225,27 @@ a.active {
   line-height: 55px;
 }
 
+@media (min-width: 2000px) {
+  .home-page-main-wrapper {
+    margin-top: 140px;
+  }
+
+  .home-page-named-heading {
+    font-size: 50px;
+  }
+
+  .home-page-linked-heading {
+    font-size: 40px;
+  }
+  .hope-page-bottom-heading {
+    font-size: 30px;
+  }
+  .home-page-arrow-down-icon:hover {
+    font-size: 63px;
+    color: #fcec3b;
+  }
+}
+
 /* --------------------------------- */
 
 /* <=== About Page  ===>  */
@@ -226,7 +258,7 @@ a.active {
   display: flex;
   flex-direction: column;
   align-items: center;
-  margin-top: 200px;
+  margin-top: 230px;
   padding: 0px 80px;
 }
 
@@ -268,32 +300,61 @@ a.active {
 /* <=== Short text SoMe wrapper component  ===>  */
 
 .about-page-short-text-holder {
-  width: 69%;
+  width: 75%;
   display: flex;
   flex-direction: column;
   align-items: flex-start;
 }
 .about-page-SoMe-icons-holder {
-  width: 24%;
+  width: 12%;
   display: flex;
   flex-direction: row;
   align-items: center;
   justify-content: space-between;
 }
 .about-page-short-text {
-  font-size: 27px;
-  line-height: 58px;
+  width: 86%;
+  font-size: 29px;
+  line-height: 52px;
   color: #7f92b1;
   margin-bottom: 30px;
 }
 .SoMe-icon {
-  width: 52px;
-  height: 52px;
+  width: 36px;
+  height: 36px;
   transition: all 0.4s;
 }
 .SoMe-icon:hover {
   fill: #fcec3b;
   cursor: pointer;
+}
+
+@media (min-width: 2000px) {
+  .about-page-short-text-holder {
+    width: 70%;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+  }
+  .about-page-SoMe-icons-holder {
+    width: 9%;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+  }
+  .about-page-short-text {
+    width: 64%;
+    font-size: 32px;
+    line-height: 52px;
+    color: #7f92b1;
+    margin-bottom: 30px;
+  }
+  .SoMe-icon {
+    width: 45px;
+    height: 45px;
+    transition: all 0.4s;
+  }
 }
 
 /* <=== My stack component  ===>  */

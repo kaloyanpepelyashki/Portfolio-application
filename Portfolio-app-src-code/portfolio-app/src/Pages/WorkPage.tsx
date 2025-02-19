@@ -1,9 +1,25 @@
 import ProjectItemComponent from "../Components/UI Components/Global Components/ProjectItemComponent";
-import { fetchProjects } from "../Components/BLOC/GetProjectsBLOC";
-
-const projects = await fetchProjects();
+import fetchProjects from "../Components/BLOC/GetProjectsBLOC";
+import { useEffect, useState } from "react";
+import Project from "../Components/Models/Project";
 
 export default function WorkPage() {
+  const [projects, setProjects] = useState<Array<Project>>([]);
+
+  async function getProjects() {
+    const productResult = await fetchProjects();
+
+    if (productResult.isSuccess) {
+      return setProjects(productResult.payload);
+    } else {
+      console.error("Error getting projects: ", productResult.message);
+    }
+  }
+
+  useEffect(() => {
+    getProjects();
+  }, []);
+
   return (
     <>
       <div className="work-page-main-wrapper page-main-wrapper">
@@ -28,7 +44,7 @@ export default function WorkPage() {
                   />
                 );
               })
-            : ""}
+            : "No projects found"}
         </div>
       </div>
     </>

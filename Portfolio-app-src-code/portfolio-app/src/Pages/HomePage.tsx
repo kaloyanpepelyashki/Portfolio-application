@@ -1,9 +1,18 @@
-import { useRef } from "react";
+import { useEffect, useRef, useState } from "react";
 import NavBarLink from "../Components/UI Components/Atomic Components/NavigationBar-Link";
 import { ArrowDropDownCircleOutlined } from "@mui/icons-material";
 
 export default function HomePage() {
   const scrollTarget = useRef<HTMLDivElement | null>(null);
+
+  const [screenWidth, setScreenWidth] = useState<number>(window.innerWidth);
+
+  useEffect(() => {
+    const handleResize = () => setScreenWidth(window.innerWidth);
+
+    window.addEventListener("resize", handleResize);
+    return () => window.removeEventListener("resize", handleResize);
+  }, []);
 
   const ScrollTrigger = () =>
     scrollTarget.current?.scrollIntoView({
@@ -18,10 +27,21 @@ export default function HomePage() {
       </h1>
       <div className="linked-headings-holder">
         <h3 className="home-page-linked-heading">
-          Check out my <NavBarLink text={"work"} to={""} size={"47"} />
+          Check out my{" "}
+          <NavBarLink
+            text={"work"}
+            to={""}
+            size={screenWidth >= 2000 ? "47" : "37"}
+          />
         </h3>
         <h3 className="home-page-linked-heading">
-          Learn more <NavBarLink text={"about"} to={""} size={"47"} /> me
+          Learn more{" "}
+          <NavBarLink
+            text={"about"}
+            to={"/about"}
+            size={screenWidth >= 2000 ? "47" : "37"}
+          />{" "}
+          me
         </h3>
       </div>
       <div className="home-page-bottom-heading-wrapper">
