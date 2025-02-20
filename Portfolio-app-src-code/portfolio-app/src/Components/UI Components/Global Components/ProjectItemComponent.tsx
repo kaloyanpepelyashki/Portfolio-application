@@ -1,41 +1,29 @@
+import Project from "../../Models/Project";
 import ProjectItemAttributes from "../Small commponents/ProjectItemAttributesHolde";
 import ProjectItemTopSection from "../Small commponents/ProjectItemTopComponent";
 import ProjectStackIconsHolder from "../Small commponents/ProjectStackIconsHolder";
 interface ProjectItemProps {
-  projectTitle: string;
-  projectDescription: string;
-  projectImageURL: string;
-  projectRepoUrl: string;
-  projectRole: string;
-  projectDate: string;
-  projectPurpose: string;
-  projectStack: Array<string>;
+  project: Project;
 }
-const ProjectItemComponent: React.FC<ProjectItemProps> = ({
-  projectTitle,
-  projectDescription,
-  projectImageURL,
-  projectRepoUrl,
-  projectRole,
-  projectDate,
-  projectPurpose,
-  projectStack,
-}) => {
+const ProjectItemComponent: React.FC<ProjectItemProps> = ({ project }) => {
   return (
     <>
-      <a href={projectRepoUrl}>
+      <a href={!project.isPrivate ? project.repoUrl : ""}>
         <div className="project-item-component-wrapper">
           <ProjectItemTopSection
-            projectTitle={projectTitle}
-            projectDescription={projectDescription}
-            projectImageURL={projectImageURL}
+            isPrivate={project.isPrivate}
+            title={project.title}
+            description={project.description}
+            imageURL={
+              "https://marketplace.canva.com/EAE6WTyrSQ0/2/0/1600w/canva-light-beige-sleek-and-simple-blogger-personal-website--7Q4-7tyJj4.jpg"
+            }
           />
           <ProjectItemAttributes
-            role={projectRole}
-            date={projectDate}
-            purpose={projectPurpose}
+            role={project.role}
+            date={project.date}
+            purpose={project.purpose}
           />
-          <ProjectStackIconsHolder projectStackItems={projectStack} />
+          <ProjectStackIconsHolder stackItems={project.stack} />
         </div>
       </a>
     </>

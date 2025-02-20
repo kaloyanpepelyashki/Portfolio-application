@@ -1,5 +1,7 @@
 export default class Project {
   public id: string;
+  public index: number;
+  public isPrivate: boolean;
   public title: string;
   public description: string;
   public imageUrl: string;
@@ -10,6 +12,8 @@ export default class Project {
   public stack: Array<string> = [];
   constructor(
     id: string,
+    index: number,
+    isPrivate: boolean,
     title: string,
     description: string,
     imageUrl: string,
@@ -20,6 +24,8 @@ export default class Project {
     stack: Array<string>
   ) {
     this.id = id;
+    this.index = index;
+    this.isPrivate = isPrivate;
     this.title = title;
     this.description = description;
     this.imageUrl = imageUrl;

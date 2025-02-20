@@ -16,6 +16,8 @@ export default async function fetchProjects(): Promise<{
       const data = project.data();
       const projectObj = new Project(
         project.id,
+        0,
+        data.isPrivate,
         data.title,
         data.description,
         data.imageUrl,

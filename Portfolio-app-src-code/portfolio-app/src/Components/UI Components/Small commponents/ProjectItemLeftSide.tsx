@@ -1,14 +1,12 @@
 interface ProjectItemLeftSide {
-  projectImageURL: string;
+  imageURL: string;
 }
 
-const ProjectItemLeftSide: React.FC<ProjectItemLeftSide> = ({
-  projectImageURL,
-}) => {
+const ProjectItemLeftSide: React.FC<ProjectItemLeftSide> = ({ imageURL }) => {
   return (
     <>
       <div className="project-item-top-section-left-side-wrapper">
-        <img className="project-item-image" src={projectImageURL} />
+        <img className="project-item-image" src={imageURL} />
       </div>
     </>
   );

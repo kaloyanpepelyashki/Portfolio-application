@@ -1,5 +1,6 @@
 import { collection, getDocs } from "firebase/firestore";
 import db from "../../../firebaseconfig";
+
 export default class FirebaseDao {
   protected dataBase = db;
   constructor() {}

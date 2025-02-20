@@ -29,19 +29,7 @@ export default function WorkPage() {
             ? projects.map((project) => {
                 console.log(project);
                 return (
-                  <ProjectItemComponent
-                    key={project.id}
-                    projectTitle={project.title}
-                    projectDescription={project.description}
-                    projectImageURL={
-                      "https://marketplace.canva.com/EAE6WTyrSQ0/2/0/1600w/canva-light-beige-sleek-and-simple-blogger-personal-website--7Q4-7tyJj4.jpg"
-                    }
-                    projectRepoUrl={project.repoUrl}
-                    projectRole={project.role}
-                    projectDate={project.date}
-                    projectPurpose={project.purpose}
-                    projectStack={project.stack}
-                  />
+                  <ProjectItemComponent key={project.id} project={project} />
                 );
               })
             : "No projects found"}

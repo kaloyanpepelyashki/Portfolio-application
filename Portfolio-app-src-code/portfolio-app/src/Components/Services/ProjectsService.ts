@@ -16,6 +16,7 @@ export default class ProjectsService {
       return [];
     } catch (e) {
       console.log(`Error getting docks: ${e}`);
+      throw e;
     }
   }
 }
