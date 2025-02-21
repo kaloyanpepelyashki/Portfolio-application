@@ -23,16 +23,20 @@ export default function WorkPage() {
   return (
     <>
       <div className="work-page-main-wrapper page-main-wrapper">
-        <h2 className="comment-like-heading work-comment-heading">//My work</h2>
-        <div className="projects-list-holder">
-          {projects.length > 0
-            ? projects.map((project) => {
-                console.log(project);
-                return (
-                  <ProjectItemComponent key={project.id} project={project} />
-                );
-              })
-            : "No projects found"}
+        <div className="project-section-wrapper">
+          <h2 className="comment-like-heading work-comment-heading">
+            //My work
+          </h2>
+          <div className="projects-list-holder">
+            {projects.length > 0
+              ? projects.map((project) => {
+                  console.log(project);
+                  return (
+                    <ProjectItemComponent key={project.id} project={project} />
+                  );
+                })
+              : "No projects found"}
+          </div>
         </div>
       </div>
     </>
