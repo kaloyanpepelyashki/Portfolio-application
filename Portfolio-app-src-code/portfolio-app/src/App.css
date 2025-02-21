@@ -164,6 +164,27 @@ a.active {
   }
 }
 
+/* <=== Loader Component ===>  */
+.loader-holder {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.loader-heading {
+  font-size: 18pt;
+  font-weight: 500;
+  color: #fcec3b;
+  margin-top: 25px;
+}
+
+
+@media (min-width: 2000px) {
+  .loader-heading {
+    font-size: 24pt;
+    margin-top: 35px;
+  }
+}
 
 /* --------------------------------- */
 

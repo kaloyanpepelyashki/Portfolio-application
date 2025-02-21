@@ -1,10 +1,13 @@
 import "./App.css";
 import { Route, Routes } from "react-router-dom";
-import HomePage from "./Pages/HomePage";
 import NavigationBar from "./Components/UI Components/Global Components/NavigationBar";
-import AboutPage from "./Pages/AboutPage";
 import FlashlightEffect from "./Components/UI Components/Atomic Components/CursorFlashLight";
-import WorkPage from "./Pages/WorkPage";
+import { Suspense, lazy } from "react";
+import Loader from "./Components/UI Components/Small commponents/Loader";
+
+const workPage = lazy(() => import("./Pages/WorkPage"));
+const aboutPage = lazy(() => import("./Pages/AboutPage"));
+const homePage = lazy(() => import("./Pages/HomePage"));
 
 function App() {
   return (
@@ -12,11 +15,13 @@ function App() {
       <FlashlightEffect />
       <NavigationBar />
       <div className="application-main-container">
-        <Routes>
-          <Route path="/" element={<HomePage />} />
-          <Route path="/about" element={<AboutPage />} />
-          <Route path="/work" element={<WorkPage />} />
-        </Routes>
+        <Suspense fallback={<Loader />}>
+          <Routes>
+            <Route path="/" Component={homePage} />
+            <Route path="/about" Component={aboutPage} />
+            <Route path="/work" Component={workPage} />
+          </Routes>
+        </Suspense>
       </div>
     </>
   );

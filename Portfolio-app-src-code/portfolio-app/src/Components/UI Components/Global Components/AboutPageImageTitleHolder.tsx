@@ -4,7 +4,7 @@ export default function ImageTitleHolder() {
       <div className="about-page-image-title-wrapper">
         <img
           className="about-page-profile-picture"
-          src="https://images.pexels.com/photos/614810/pexels-photo-614810.jpeg?cs=srgb&dl=pexels-simon-robben-614810.jpg&fm=jpg"
+          src="https://avatars.githubusercontent.com/u/93147724?s=96&v=4"
           alt="A picture of me"
         />
         <div className="about-page-hero-headings-holder">

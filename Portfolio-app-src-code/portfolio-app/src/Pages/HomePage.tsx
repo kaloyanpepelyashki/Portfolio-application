@@ -30,8 +30,9 @@ export default function HomePage() {
           Check out my{" "}
           <NavBarLink
             text={"work"}
-            to={""}
+            to={"/work"}
             size={screenWidth >= 2000 ? "47" : "37"}
+            color={"#fcec3b"}
           />
         </h3>
         <h3 className="home-page-linked-heading">
@@ -40,6 +41,7 @@ export default function HomePage() {
             text={"about"}
             to={"/about"}
             size={screenWidth >= 2000 ? "47" : "37"}
+            color={"#fcec3b"}
           />{" "}
           me
         </h3>
