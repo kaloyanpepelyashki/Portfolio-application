@@ -2,6 +2,10 @@ import ProjectItemComponent from "../Components/UI Components/Global Components/
 import fetchProjects from "../Components/BLOC/GetProjectsBLOC";
 import { useEffect, useState } from "react";
 import Project from "../Components/Models/Project";
+import { Fab } from "@mui/material";
+import { FilterAlt } from "@mui/icons-material";
+import FilterButton from "../Components/UI Components/Atomic Components/FilterButton";
+import WorkPageHeader from "../Components/UI Components/Small commponents/WorkPageHeader";
 
 export default function WorkPage() {
   const [projects, setProjects] = useState<Array<Project>>([]);
@@ -24,9 +28,7 @@ export default function WorkPage() {
     <>
       <div className="work-page-main-wrapper page-main-wrapper">
         <div className="project-section-wrapper">
-          <h2 className="comment-like-heading work-comment-heading">
-            //My work
-          </h2>
+          <WorkPageHeader />
           <div className="projects-list-holder">
             {projects.length > 0
               ? projects.map((project) => {
