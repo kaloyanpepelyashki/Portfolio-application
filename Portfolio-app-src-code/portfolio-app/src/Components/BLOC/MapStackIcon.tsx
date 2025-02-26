@@ -1,3 +1,9 @@
+const languages = [
+  { lng: "css", label: "CSS" },
+  { lng: "html", label: "HTML" },
+  { lng: "cs", label: "C#" },
+];
+
 export const mapStackIcons: (stackItem: string) => JSX.Element | undefined = (
   stackItem: string
 ) => {

@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 
 import {
   Divider,
@@ -7,18 +7,32 @@ import {
   FormGroup,
   Menu,
   MenuItem,
+  Checkbox,
 } from "@mui/material";
 import FilterButton from "../Atomic Components/FilterButton";
-import { Check, CheckBox } from "@mui/icons-material";
 
+//! Delete later
+//For prototyping purposes
 const languages = [
+  { lng: "html", label: "HTML" },
+  { lng: "css", label: "CSS" },
   { lng: "js", label: "JavaScript" },
+  { lng: "react", label: "React" },
   { lng: "cs", label: "C#" },
   { lng: "ts", label: "TypeScript" },
   { lng: "php", label: "PHP" },
+  { lng: "sql", label: "SQL" },
 ];
 
-const WorkPageHeader: React.FC = () => {
+type WorkPageHeaderProps = {
+  filterLanguages: Array<string>;
+  setFilterLanguages: React.Dispatch<React.SetStateAction<Array<string>>>;
+};
+
+const WorkPageHeader: React.FC<WorkPageHeaderProps> = ({
+  filterLanguages,
+  setFilterLanguages,
+}) => {
   const [anchor, setAnchor] = useState<HTMLElement | null>(null);
 
   //Handles the open trigger of the Menu component
@@ -32,6 +46,20 @@ const WorkPageHeader: React.FC = () => {
   }
 
   const open = Boolean(anchor);
+
+  useEffect(() => {
+    console.log(filterLanguages);
+  }, [filterLanguages]);
+
+  const handleChangeState = (e, checked: boolean) => {
+    if (checked) {
+      setFilterLanguages((prevState) => [...prevState, e.target.value]);
+    } else {
+      setFilterLanguages((prevState) =>
+        prevState.filter((item) => item != e.target.value)
+      );
+    }
+  };
 
   return (
     <div className="project-page-top-section-holder">
@@ -86,33 +114,20 @@ const WorkPageHeader: React.FC = () => {
               <MenuItem>
                 <FormControlLabel
                   value={language.lng}
-                  control={<CheckBox />}
+                  control={
+                    <Checkbox
+                      onChange={handleChangeState}
+                      checked={filterLanguages.some(
+                        (lng) => lng == language.lng
+                      )}
+                    />
+                  }
                   label={<p className="filter-menu-item">{language.label}</p>}
                   labelPlacement="end"
-                  checked={false}
                 />
               </MenuItem>
             );
           })}
-          {/* <MenuItem>
-            <FormControlLabel
-              value="end"
-              control={<CheckBox />}
-              label="typescript"
-              labelPlacement="end"
-            />
-          </MenuItem>
-          <MenuItem>
-            <FormControlLabel
-              value="javascript"
-              control={<CheckBox />}
-              label={<p className="filter-menu-item">Javascript</p>}
-              labelPlacement="end"
-            />
-          </MenuItem>
-          <MenuItem>
-            <FormControlLabel control={<CheckBox />} label="typescript" />
-          </MenuItem> */}
         </FormGroup>
       </Menu>
     </div>
