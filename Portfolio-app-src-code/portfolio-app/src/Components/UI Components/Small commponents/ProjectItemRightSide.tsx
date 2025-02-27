@@ -1,5 +1,5 @@
 import { ArrowOutward } from "@mui/icons-material";
-import PrivacyLabel from "../Atomic Components/PrivateLabel";
+import PrivacyLabel from "../Atomic Components/PrivacyLabel";
 
 interface ProjectItemRightSide {
   isPrivate: boolean;

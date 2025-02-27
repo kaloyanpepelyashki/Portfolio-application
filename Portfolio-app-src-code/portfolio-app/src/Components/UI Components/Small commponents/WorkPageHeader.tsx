@@ -11,19 +11,11 @@ import {
   Radio,
 } from "@mui/material";
 import FilterButton from "../Atomic Components/FilterButton";
+import programmingTechnologies from "../../../Data/ProgrammmingLanguages";
 
 //! Delete later
 //For prototyping purposes
-const languages = [
-  { lng: "html", label: "HTML" },
-  { lng: "css", label: "CSS" },
-  { lng: "js", label: "JavaScript" },
-  { lng: "react", label: "React" },
-  { lng: "cs", label: "C#" },
-  { lng: "ts", label: "TypeScript" },
-  { lng: "php", label: "PHP" },
-  { lng: "sql", label: "SQL" },
-];
+const languages = Object.values(programmingTechnologies);
 
 type WorkPageHeaderProps = {
   filterLanguages: Array<string>;
