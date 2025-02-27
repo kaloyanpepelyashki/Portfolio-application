@@ -7,6 +7,8 @@ import WorkPageHeader from "../Components/UI Components/Small commponents/WorkPa
 export default function WorkPage() {
   const [projects, setProjects] = useState<Array<Project>>([]);
   const [filteredProjects, setFilteredProjects] = useState<Array<Project>>([]);
+
+  const [privacyFilter, setPrivacyFilter] = useState<number>(1);
   const [filterLanguages, setFilterLanguages] = useState<Array<string>>([]);
 
   async function getProjects() {
@@ -24,16 +26,22 @@ export default function WorkPage() {
   }, []);
 
   useEffect(() => {
+    let filtered = projects;
+
     if (filterLanguages.length > 0) {
-      setFilteredProjects(
-        projects.filter((project) =>
-          filterLanguages.every((lng) => project.stack.includes(lng))
-        )
+      filtered = filtered.filter((project) =>
+        filterLanguages.every((lng) => project.stack.includes(lng))
       );
-    } else {
-      setFilteredProjects([]);
     }
-  }, [filterLanguages]);
+
+    if (privacyFilter === 2) {
+      filtered = filtered.filter((project) => !project.isPrivate);
+    } else if (privacyFilter === 3) {
+      filtered = filtered.filter((project) => project.isPrivate);
+    }
+
+    setFilteredProjects(filtered);
+  }, [filterLanguages, privacyFilter]);
 
   return (
     <>
@@ -42,6 +50,8 @@ export default function WorkPage() {
           <WorkPageHeader
             filterLanguages={filterLanguages}
             setFilterLanguages={setFilterLanguages}
+            privacyFilter={privacyFilter}
+            setPrivacyFilter={setPrivacyFilter}
           />
           <div className="projects-list-holder">
             {projects.length > 0 && filteredProjects.length == 0

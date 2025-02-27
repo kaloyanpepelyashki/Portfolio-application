@@ -2,12 +2,13 @@ import { useEffect, useState } from "react";
 
 import {
   Divider,
-  FormControl,
   FormControlLabel,
   FormGroup,
   Menu,
   MenuItem,
   Checkbox,
+  RadioGroup,
+  Radio,
 } from "@mui/material";
 import FilterButton from "../Atomic Components/FilterButton";
 
@@ -27,11 +28,15 @@ const languages = [
 type WorkPageHeaderProps = {
   filterLanguages: Array<string>;
   setFilterLanguages: React.Dispatch<React.SetStateAction<Array<string>>>;
+  privacyFilter: number;
+  setPrivacyFilter: React.Dispatch<React.SetStateAction<number>>;
 };
 
 const WorkPageHeader: React.FC<WorkPageHeaderProps> = ({
   filterLanguages,
   setFilterLanguages,
+  privacyFilter,
+  setPrivacyFilter,
 }) => {
   const [anchor, setAnchor] = useState<HTMLElement | null>(null);
 
@@ -51,7 +56,11 @@ const WorkPageHeader: React.FC<WorkPageHeaderProps> = ({
     console.log(filterLanguages);
   }, [filterLanguages]);
 
-  const handleChangeState = (e, checked: boolean) => {
+  //Handles change in the checkbox group - the languages filter checkboxes
+  const handleCheckBoxChangeState = (
+    e: React.ChangeEvent<HTMLInputElement>,
+    checked: boolean
+  ) => {
     if (checked) {
       setFilterLanguages((prevState) => [...prevState, e.target.value]);
     } else {
@@ -59,6 +68,11 @@ const WorkPageHeader: React.FC<WorkPageHeaderProps> = ({
         prevState.filter((item) => item != e.target.value)
       );
     }
+  };
+
+  //Handles change in the RadioGroup - the privacy filter radio buttons
+  const handleRadioCheckState = (e: React.ChangeEvent<HTMLInputElement>) => {
+    setPrivacyFilter(Number(e.target.value));
   };
 
   return (
@@ -83,6 +97,7 @@ const WorkPageHeader: React.FC<WorkPageHeaderProps> = ({
                 ml: -0.5,
                 mr: 1,
               },
+              padding: "10px 25px",
               "&::before": {
                 content: '""',
                 display: "block",
@@ -101,12 +116,32 @@ const WorkPageHeader: React.FC<WorkPageHeaderProps> = ({
         transformOrigin={{ horizontal: "right", vertical: "top" }}
         anchorOrigin={{ horizontal: "right", vertical: "bottom" }}
       >
-        <MenuItem>
-          <p className="filter-menu-item">Private</p>
-        </MenuItem>
-        <MenuItem>
-          <p className="filter-menu-item">Public</p>
-        </MenuItem>
+        <RadioGroup onChange={handleRadioCheckState}>
+          <MenuItem>
+            <FormControlLabel
+              value={1}
+              control={<Radio checked={privacyFilter == 1} />}
+              label={<p className="filter-menu-item">All (default)</p>}
+              labelPlacement="end"
+            />
+          </MenuItem>
+          <MenuItem>
+            <FormControlLabel
+              value={2}
+              control={<Radio checked={privacyFilter == 2} />}
+              label={<p className="filter-menu-item">Public</p>}
+              labelPlacement="end"
+            />
+          </MenuItem>
+          <MenuItem>
+            <FormControlLabel
+              value={3}
+              control={<Radio checked={privacyFilter == 3} />}
+              label={<p className="filter-menu-item">Private</p>}
+              labelPlacement="end"
+            />
+          </MenuItem>
+        </RadioGroup>
         <Divider />
         <FormGroup>
           {languages.map((language) => {
@@ -116,7 +151,7 @@ const WorkPageHeader: React.FC<WorkPageHeaderProps> = ({
                   value={language.lng}
                   control={
                     <Checkbox
-                      onChange={handleChangeState}
+                      onChange={handleCheckBoxChangeState}
                       checked={filterLanguages.some(
                         (lng) => lng == language.lng
                       )}
