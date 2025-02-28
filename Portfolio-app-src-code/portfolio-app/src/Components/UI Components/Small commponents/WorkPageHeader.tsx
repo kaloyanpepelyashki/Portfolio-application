@@ -12,6 +12,7 @@ import {
 } from "@mui/material";
 import FilterButton from "../Atomic Components/FilterButton";
 import programmingTechnologies from "../../../Data/ProgrammmingLanguages";
+import SearchBar from "../Atomic Components/SearchBar";
 
 //! Delete later
 //For prototyping purposes
@@ -70,93 +71,98 @@ const WorkPageHeader: React.FC<WorkPageHeaderProps> = ({
   return (
     <div className="project-page-top-section-holder">
       <h2 className="comment-like-heading work-comment-heading">//My work</h2>
-      <FilterButton onClick={handleOpenMenu} />
-      <Menu
-        anchorEl={anchor}
-        id="account-menu"
-        open={open}
-        onClose={handleCloseMenu}
-        slotProps={{
-          paper: {
-            elevation: 0,
-            sx: {
-              overflow: "visible",
-              filter: "drop-shadow(0px 2px 8px rgba(0,0,0,0.32))",
-              mt: 1.5,
-              "& .MuiAvatar-root": {
-                width: 320,
-                height: 320,
-                ml: -0.5,
-                mr: 1,
-              },
-              padding: "10px 25px",
-              "&::before": {
-                content: '""',
-                display: "block",
-                position: "absolute",
-                top: 0,
-                right: 14,
-                width: 10,
-                height: 10,
-                bgcolor: "background.paper",
-                transform: "translateY(-50%) rotate(45deg)",
-                zIndex: 0,
+      <div className="filter-search-bar-wrapper">
+        <div className="search-bar-holder">
+          <SearchBar />
+        </div>
+        <FilterButton onClick={handleOpenMenu} />
+        <Menu
+          anchorEl={anchor}
+          id="account-menu"
+          open={open}
+          onClose={handleCloseMenu}
+          slotProps={{
+            paper: {
+              elevation: 0,
+              sx: {
+                overflow: "visible",
+                filter: "drop-shadow(0px 2px 8px rgba(0,0,0,0.32))",
+                mt: 1.5,
+                "& .MuiAvatar-root": {
+                  width: 320,
+                  height: 320,
+                  ml: -0.5,
+                  mr: 1,
+                },
+                padding: "10px 25px",
+                "&::before": {
+                  content: '""',
+                  display: "block",
+                  position: "absolute",
+                  top: 0,
+                  right: 14,
+                  width: 10,
+                  height: 10,
+                  bgcolor: "background.paper",
+                  transform: "translateY(-50%) rotate(45deg)",
+                  zIndex: 0,
+                },
               },
             },
-          },
-        }}
-        transformOrigin={{ horizontal: "right", vertical: "top" }}
-        anchorOrigin={{ horizontal: "right", vertical: "bottom" }}
-      >
-        <RadioGroup onChange={handleRadioCheckState}>
-          <MenuItem>
-            <FormControlLabel
-              value={1}
-              control={<Radio checked={privacyFilter == 1} />}
-              label={<p className="filter-menu-item">All (default)</p>}
-              labelPlacement="end"
-            />
-          </MenuItem>
-          <MenuItem>
-            <FormControlLabel
-              value={2}
-              control={<Radio checked={privacyFilter == 2} />}
-              label={<p className="filter-menu-item">Public</p>}
-              labelPlacement="end"
-            />
-          </MenuItem>
-          <MenuItem>
-            <FormControlLabel
-              value={3}
-              control={<Radio checked={privacyFilter == 3} />}
-              label={<p className="filter-menu-item">Private</p>}
-              labelPlacement="end"
-            />
-          </MenuItem>
-        </RadioGroup>
-        <Divider />
-        <FormGroup>
-          {languages.map((language) => {
-            return (
-              <MenuItem>
-                <FormControlLabel
-                  value={language.lng}
-                  control={
-                    <Checkbox
-                      onChange={handleCheckBoxChangeState}
-                      checked={filterLanguages.some(
-                        (lng) => lng == language.lng
-                      )}
-                    />
-                  }
-                  label={<p className="filter-menu-item">{language.label}</p>}
-                  labelPlacement="end"
-                />
-              </MenuItem>
-            );
-          })}
-        </FormGroup>
-      </Menu>
+          }}
+          transformOrigin={{ horizontal: "right", vertical: "top" }}
+          anchorOrigin={{ horizontal: "right", vertical: "bottom" }}
+        >
+          <RadioGroup onChange={handleRadioCheckState}>
+            <MenuItem>
+              <FormControlLabel
+                value={1}
+                control={<Radio checked={privacyFilter == 1} />}
+                label={<p className="filter-menu-item">All (default)</p>}
+                labelPlacement="end"
+              />
+            </MenuItem>
+            <MenuItem>
+              <FormControlLabel
+                value={2}
+                control={<Radio checked={privacyFilter == 2} />}
+                label={<p className="filter-menu-item">Public</p>}
+                labelPlacement="end"
+              />
+            </MenuItem>
+            <MenuItem>
+              <FormControlLabel
+                value={3}
+                control={<Radio checked={privacyFilter == 3} />}
+                label={<p className="filter-menu-item">Private</p>}
+                labelPlacement="end"
+              />
+            </MenuItem>
+          </RadioGroup>
+          <Divider />
+          <FormGroup>
+            {languages.map((language) => {
+              return (
+                <MenuItem>
+                  <FormControlLabel
+                    value={language.lng}
+                    control={
+                      <Checkbox
+                        onChange={handleCheckBoxChangeState}
+                        checked={filterLanguages.some(
+                          (lng) => lng == language.lng
+                        )}
+                      />
+                    }
+                    label={<p className="filter-menu-item">{language.label}</p>}
+                    labelPlacement="end"
+                  />
+                </MenuItem>
+              );
+            })}
+          </FormGroup>
+        </Menu>
+      </div>
     </div>
   );
 };
