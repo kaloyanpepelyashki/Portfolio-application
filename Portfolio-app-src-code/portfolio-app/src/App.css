@@ -1,5 +1,7 @@
 @import url("https://fonts.googleapis.com/css2?family=Roboto+Mono:ital@0;1&display=swap");
 @import url("https://fonts.googleapis.com/css2?family=Inter:wght@100..900&family=Roboto+Mono:ital,wght@0,700;1,700&display=swap");
+/* Console Like font */
+@import url('https://fonts.googleapis.com/css2?family=Space+Mono:ital,wght@0,400;0,700;1,400;1,700&display=swap');
 
 #root {
   width: 100%;
@@ -442,6 +444,7 @@ a.active {
   align-items: center;
   margin-top: 155px;
 }
+
 .project-section-wrapper {
   display: flex;
   flex-direction: column;
@@ -453,10 +456,99 @@ a.active {
   margin-bottom: 20px;
 }
 
+.search-result-bottom-divider {
+  margin-top: 15px;
+}
+
 .projects-list-holder {
   width: 100%;
   height: 100%;
   padding: 0 46px;
+}
+
+.project-page-top-section-holder {
+  width: 91%;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.filter-search-bar-wrapper {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+
+.search-bar-holder {
+  margin-right: 25px;
+}
+
+.search-bar-component-wrapper {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+
+.search-bar-input {
+  padding: 10px 10px 10px 25px;
+  margin-left: -26px;
+  border-radius: 15px;
+  background-color: #e2e8f0;
+  color: black;
+  border: none;
+}
+
+.search-bar-icon {
+  z-index: 20;
+  color: black;
+}
+
+.filter-button-inner-content {
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  padding: 5px 10px;
+}
+
+.filter-button-text {
+  margin-left: 5px;
+  font-weight: bold;
+}
+
+.filter-menu-item {
+  font-size: 17pt;
+}
+
+@media (min-width: 2000px) {
+  .filter-button-inner-content {
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    padding: 7px 12px;
+  }
+  .filter-button-text {
+    margin-left: 5px;
+    font-weight: bold;
+    font-size: 11pt;
+  }
+  .filter-search-bar-wrapper {
+    width: 30%;
+    justify-content: end;
+  }
+  .search-bar-holder {
+    width: 40%;
+  }
+  .search-bar-component-wrapper {
+    width: 100%;
+  }
+  .search-bar-input {
+    width: 100%;
+    font-family: "Space Mono", serif;
+    font-weight: 400;
+    font-style: normal;
+  }
 }
 
 /* <=== Project item component  ===>  */
@@ -615,7 +707,7 @@ a.active {
     margin-top: 32px;
     color: #7f92b1;
   }
-  
+
   .project-attribute-text {
     font-size: 24px;
     color: #ffc745;
