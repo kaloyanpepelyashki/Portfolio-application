@@ -1,6 +1,10 @@
 import { ChevronRight } from "@mui/icons-material";
 
-const SearchBar: React.FC = () => {
+type SearchBarProps = {
+  searchFunction: (e: React.ChangeEvent<HTMLInputElement>) => void;
+};
+
+const SearchBar: React.FC<SearchBarProps> = ({ searchFunction }) => {
   return (
     <div className="search-bar-component-wrapper">
       <ChevronRight
@@ -8,7 +12,12 @@ const SearchBar: React.FC = () => {
         color="inherit"
         fontSize="large"
       />
-      <input type="text" className="search-bar-input" placeholder="Search" />
+      <input
+        onChange={searchFunction}
+        type="text"
+        className="search-bar-input"
+        placeholder="Search"
+      />
     </div>
   );
 };

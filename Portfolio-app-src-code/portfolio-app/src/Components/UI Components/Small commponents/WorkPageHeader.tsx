@@ -14,8 +14,7 @@ import FilterButton from "../Atomic Components/FilterButton";
 import programmingTechnologies from "../../../Data/ProgrammmingLanguages";
 import SearchBar from "../Atomic Components/SearchBar";
 
-//! Delete later
-//For prototyping purposes
+//Fetching the different programming technologies and languages from the the external file.
 const languages = Object.values(programmingTechnologies);
 
 type WorkPageHeaderProps = {
@@ -23,6 +22,7 @@ type WorkPageHeaderProps = {
   setFilterLanguages: React.Dispatch<React.SetStateAction<Array<string>>>;
   privacyFilter: number;
   setPrivacyFilter: React.Dispatch<React.SetStateAction<number>>;
+  searchFunction: (e: React.ChangeEvent<HTMLInputElement>) => void;
 };
 
 const WorkPageHeader: React.FC<WorkPageHeaderProps> = ({
@@ -30,6 +30,7 @@ const WorkPageHeader: React.FC<WorkPageHeaderProps> = ({
   setFilterLanguages,
   privacyFilter,
   setPrivacyFilter,
+  searchFunction,
 }) => {
   const [anchor, setAnchor] = useState<HTMLElement | null>(null);
 
@@ -73,7 +74,7 @@ const WorkPageHeader: React.FC<WorkPageHeaderProps> = ({
       <h2 className="comment-like-heading work-comment-heading">//My work</h2>
       <div className="filter-search-bar-wrapper">
         <div className="search-bar-holder">
-          <SearchBar />
+          <SearchBar searchFunction={searchFunction} />
         </div>
         <FilterButton onClick={handleOpenMenu} />
         <Menu

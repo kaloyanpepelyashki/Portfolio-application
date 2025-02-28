@@ -3,6 +3,7 @@ import fetchProjects from "../Components/BLOC/GetProjectsBLOC";
 import { useEffect, useState } from "react";
 import Project from "../Components/Models/Project";
 import WorkPageHeader from "../Components/UI Components/Small commponents/WorkPageHeader";
+import { Divider } from "@mui/material";
 
 export default function WorkPage() {
   const [projects, setProjects] = useState<Array<Project>>([]);
@@ -10,6 +11,9 @@ export default function WorkPage() {
 
   const [privacyFilter, setPrivacyFilter] = useState<number>(1);
   const [filterLanguages, setFilterLanguages] = useState<Array<string>>([]);
+
+  const [isSearch, setIsSearch] = useState<boolean>(false);
+  const [searchResult, setSearchResult] = useState<Array<Project>>([]);
 
   async function getProjects() {
     const productResult = await fetchProjects();
@@ -43,6 +47,24 @@ export default function WorkPage() {
     setFilteredProjects(filtered);
   }, [filterLanguages, privacyFilter]);
 
+  useEffect(() => {
+    setTimeout(() => {
+      setIsSearch(false);
+    }, 11000);
+  }, [isSearch]);
+
+  const searchFunction = (e: React.ChangeEvent<HTMLInputElement>) => {
+    setIsSearch(true);
+
+    const userSearchInput = e.target.value.toLowerCase();
+
+    const result = projects.filter((project) =>
+      project.title.toLowerCase().includes(userSearchInput)
+    );
+
+    setSearchResult(result);
+  };
+
   return (
     <>
       <div className="work-page-main-wrapper page-main-wrapper">
@@ -52,8 +74,37 @@ export default function WorkPage() {
             setFilterLanguages={setFilterLanguages}
             privacyFilter={privacyFilter}
             setPrivacyFilter={setPrivacyFilter}
+            searchFunction={searchFunction}
           />
           <div className="projects-list-holder">
+            {isSearch && searchResult.length > 0 ? (
+              <div>
+                <Divider
+                  color="white"
+                  role="presentation"
+                  textAlign="left"
+                ></Divider>
+                {searchResult.map((project) => {
+                  return (
+                    <>
+                      <ProjectItemComponent
+                        key={project.id}
+                        project={project}
+                      />
+                    </>
+                  );
+                })}
+                <Divider
+                  className="search-result-divider search-result-bottom-divider"
+                  color="white"
+                  role="presentation"
+                />
+              </div>
+            ) : isSearch && searchResult.length < 0 ? (
+              <>
+                "No Search fits the criteria" <Divider />
+              </>
+            ) : null}
             {projects.length > 0 && filteredProjects.length == 0
               ? projects.map((project) => {
                   return (
