@@ -70,19 +70,19 @@ export default function HomePage() {
       </div>
       <div id="targetElementId" className="home-page-hidden-section-holder">
         <h2 className="home-page-hidden-section-heading" ref={scrollTarget}>
-          <b>I am a full-stack developer</b>
+          <b>Why Me..?</b>
         </h2>
         <p className="home-page-hidden-section-paragraph">
-          As a <b>dedicated</b> full-stack developer I blend technical expertise
-          with design sensibility to craft software and web solutions that are{" "}
-          <b>visually striking, highly functional, robust and user-centric</b>.
-          My software/web development background enables me to navigate and
-          solve complex challenges, always with an eye on enhancing user
-          experience.pleasing but also highly functional and scalable. My
-          background in Multimedia Design and Web Development, combined with my
-          experience as a full-time developer at Ebits, equips me with a unique
-          perspective and diverse skill set that can tackle a variety of
-          challenges.
+          I am a young and motivated full-stack developer with a passion for
+          building scalable, high-performing, and user-focused solutions. My
+          experience spans the entire development lifecycle — from optimizing
+          legacy systems to designing and deploying new features that improve
+          both functionality and user experience. With a strong foundation in
+          software and web development and design sensibility, I bring a goof
+          mix of technical precision and creativity. I thrive in agile
+          environments, enjoy solving complex challenges, and I believe that
+          great software is not just about code—it is about crafting solutions
+          that make an impact.
         </p>
       </div>
     </div>

@@ -1,3 +1,4 @@
+import { useEffect } from "react";
 import ProjectItemLeftSide from "./ProjectItemLeftSide";
 import ProjectItemRightSide from "./ProjectItemRightSide";
 interface ProjectItemTopSection {
@@ -12,6 +13,10 @@ const ProjectItemTopSection: React.FC<ProjectItemTopSection> = ({
   description,
   imageURL,
 }) => {
+  useEffect(() => {
+    console.log(imageURL);
+  }, []);
+
   return (
     <div className="project-item-top-section">
       <div className="project-item-left-side">

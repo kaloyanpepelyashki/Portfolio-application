@@ -4,8 +4,11 @@ import { useEffect, useState } from "react";
 import Project from "../Components/Models/Project";
 import WorkPageHeader from "../Components/UI Components/Small commponents/WorkPageHeader";
 import { Divider } from "@mui/material";
+import FetchLoader from "../Components/UI Components/Small commponents/FetchLoader";
 
 export default function WorkPage() {
+  const [isLoading, setIsLoading] = useState<boolean>(true);
+
   const [projects, setProjects] = useState<Array<Project>>([]);
   const [filteredProjects, setFilteredProjects] = useState<Array<Project>>([]);
 
@@ -26,7 +29,13 @@ export default function WorkPage() {
   }
 
   useEffect(() => {
-    getProjects();
+    try {
+      getProjects();
+    } finally {
+      setTimeout(() => {
+        setIsLoading(false);
+      }, 1500);
+    }
   }, []);
 
   useEffect(() => {
@@ -68,58 +77,73 @@ export default function WorkPage() {
   return (
     <>
       <div className="work-page-main-wrapper page-main-wrapper">
-        <div className="project-section-wrapper">
-          <WorkPageHeader
-            filterLanguages={filterLanguages}
-            setFilterLanguages={setFilterLanguages}
-            privacyFilter={privacyFilter}
-            setPrivacyFilter={setPrivacyFilter}
-            searchFunction={searchFunction}
-          />
-          <div className="projects-list-holder">
-            {isSearch && searchResult.length > 0 ? (
-              <div>
-                <Divider
-                  color="white"
-                  role="presentation"
-                  textAlign="left"
-                ></Divider>
-                {searchResult.map((project) => {
-                  return (
-                    <>
-                      <ProjectItemComponent
-                        key={project.id}
-                        project={project}
-                      />
-                    </>
-                  );
-                })}
-                <Divider
-                  className="search-result-divider search-result-bottom-divider"
-                  color="white"
-                  role="presentation"
-                />
-              </div>
-            ) : isSearch && searchResult.length < 0 ? (
-              <>
-                "No Search fits the criteria" <Divider />
-              </>
-            ) : null}
-            {projects.length > 0 && filteredProjects.length == 0
-              ? projects.map((project) => {
-                  return (
-                    <ProjectItemComponent key={project.id} project={project} />
-                  );
-                })
-              : filteredProjects.length > 0
-              ? filteredProjects.map((project) => {
-                  return (
-                    <ProjectItemComponent key={project.id} project={project} />
-                  );
-                })
-              : "No projects found"}
+        {isLoading ? (
+          <div className="fetch-loader-holder">
+            <FetchLoader />
           </div>
-        </div>
+        ) : (
+          <div className="work-page-inner">
+            <WorkPageHeader
+              filterLanguages={filterLanguages}
+              setFilterLanguages={setFilterLanguages}
+              privacyFilter={privacyFilter}
+              setPrivacyFilter={setPrivacyFilter}
+              searchFunction={searchFunction}
+            />
+
+            <div className="project-section-wrapper">
+              <div className="projects-list-holder">
+                {isSearch && searchResult.length > 0 ? (
+                  <div>
+                    <Divider
+                      color="white"
+                      role="presentation"
+                      textAlign="left"
+                    ></Divider>
+                    {searchResult.map((project) => {
+                      return (
+                        <>
+                          <ProjectItemComponent
+                            key={project.id}
+                            project={project}
+                          />
+                        </>
+                      );
+                    })}
+                    <Divider
+                      className="search-result-divider search-result-bottom-divider"
+                      color="white"
+                      role="presentation"
+                    />
+                  </div>
+                ) : isSearch && searchResult.length < 0 ? (
+                  <>
+                    "No Search fits the criteria" <Divider />
+                  </>
+                ) : null}
+                {projects.length > 0 && filteredProjects.length == 0
+                  ? projects.map((project) => {
+                      return (
+                        <ProjectItemComponent
+                          key={project.id}
+                          project={project}
+                        />
+                      );
+                    })
+                  : filteredProjects.length > 0
+                  ? filteredProjects.map((project) => {
+                      return (
+                        <ProjectItemComponent
+                          key={project.id}
+                          project={project}
+                        />
+                      );
+                    })
+                  : "No projects found"}
+              </div>
+            </div>
+          </div>
+        )}
       </div>
     </>
   );

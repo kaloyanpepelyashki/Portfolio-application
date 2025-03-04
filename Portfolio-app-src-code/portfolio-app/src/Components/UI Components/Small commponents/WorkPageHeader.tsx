@@ -32,6 +32,7 @@ const WorkPageHeader: React.FC<WorkPageHeaderProps> = ({
   setPrivacyFilter,
   searchFunction,
 }) => {
+  const [isFilterActive, setIsFilterActive] = useState<boolean>(false);
   const [anchor, setAnchor] = useState<HTMLElement | null>(null);
 
   //Handles the open trigger of the Menu component
@@ -47,8 +48,12 @@ const WorkPageHeader: React.FC<WorkPageHeaderProps> = ({
   const open = Boolean(anchor);
 
   useEffect(() => {
-    console.log(filterLanguages);
-  }, [filterLanguages]);
+    if (filterLanguages.length > 0 || privacyFilter > 1) {
+      setIsFilterActive(true);
+    } else {
+      setIsFilterActive(false);
+    }
+  }, [filterLanguages, privacyFilter]);
 
   //Handles change in the checkbox group - the languages filter checkboxes
   const handleCheckBoxChangeState = (
@@ -76,7 +81,7 @@ const WorkPageHeader: React.FC<WorkPageHeaderProps> = ({
         <div className="search-bar-holder">
           <SearchBar searchFunction={searchFunction} />
         </div>
-        <FilterButton onClick={handleOpenMenu} />
+        <FilterButton isActive={isFilterActive} onClick={handleOpenMenu} />
         <Menu
           anchorEl={anchor}
           id="account-menu"

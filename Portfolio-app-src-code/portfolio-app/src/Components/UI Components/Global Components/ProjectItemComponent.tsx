@@ -6,17 +6,22 @@ interface ProjectItemProps {
   project: Project;
 }
 const ProjectItemComponent: React.FC<ProjectItemProps> = ({ project }) => {
+  const props = !project.isPrivate
+    ? {
+        href: project.repoUrl,
+        target: "_blank",
+      }
+    : null;
+
   return (
     <>
-      <a href={!project.isPrivate ? project.repoUrl : ""}>
+      <a {...props}>
         <div className="project-item-component-wrapper">
           <ProjectItemTopSection
             isPrivate={project.isPrivate}
             title={project.title}
             description={project.description}
-            imageURL={
-              "https://marketplace.canva.com/EAE6WTyrSQ0/2/0/1600w/canva-light-beige-sleek-and-simple-blogger-personal-website--7Q4-7tyJj4.jpg"
-            }
+            imageURL={project.imageUrl}
           />
           <ProjectItemAttributes
             role={project.role}

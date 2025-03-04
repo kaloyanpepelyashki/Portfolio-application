@@ -4,7 +4,7 @@ export default function FlashlightEffect() {
   const [cursorPos, setCursorPos] = useState({ x: 0, y: 0 });
 
   useEffect(() => {
-    const updateCursorPos = (e) => {
+    const updateCursorPos = (e: any) => {
       setCursorPos({ x: e.clientX, y: e.clientY });
     };
     window.addEventListener("mousemove", updateCursorPos);
